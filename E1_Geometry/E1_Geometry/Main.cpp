@@ -3,7 +3,7 @@
 #include "App2.h"
 #include "../DXFramework/System.h"
 
-#define SHOW_QUAD 1
+#define SHOW_QUAD 0
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {

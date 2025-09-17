@@ -4,8 +4,8 @@
 #include <memory>
 
 // Project includes
-#include "ColourQuad.h"
-#include "ColourShader.h"
+#include "TextureQuad.h"
+#include "TextureShader.h"
 #include "../DXFramework/DXF.h"
 
 class App2 final: public BaseApplication
@@ -28,6 +28,6 @@ protected:
     void gui();
 
 private:
-    std::unique_ptr<ColourShader> colourShader;
-    std::unique_ptr<ColourQuad> mesh;
+    std::unique_ptr<TextureShader> textureShader;
+    std::unique_ptr<TextureQuad> mesh;
 };

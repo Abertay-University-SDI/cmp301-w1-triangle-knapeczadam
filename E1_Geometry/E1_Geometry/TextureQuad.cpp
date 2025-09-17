@@ -1,11 +1,11 @@
-﻿#include "ColourQuad.h"
+﻿#include "TextureQuad.h"
 
-ColourQuad::ColourQuad(ID3D11Device* device, ID3D11DeviceContext* deviceContext)
+TextureQuad::TextureQuad(ID3D11Device* device, ID3D11DeviceContext* deviceContext)
 {
     initBuffers(device);
 }
 
-void ColourQuad::sendData(ID3D11DeviceContext* deviceContext, D3D_PRIMITIVE_TOPOLOGY top)
+void TextureQuad::sendData(ID3D11DeviceContext* deviceContext, D3D_PRIMITIVE_TOPOLOGY top)
 {
     unsigned int stride;
     unsigned int offset;
@@ -19,7 +19,7 @@ void ColourQuad::sendData(ID3D11DeviceContext* deviceContext, D3D_PRIMITIVE_TOPO
     deviceContext->IASetPrimitiveTopology(top);
 }
 
-void ColourQuad::initBuffers(ID3D11Device *device)
+void TextureQuad::initBuffers(ID3D11Device *device)
 {
     D3D11_SUBRESOURCE_DATA vertexData, indexData;
 

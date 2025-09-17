@@ -6,9 +6,9 @@ void App2::init(HINSTANCE hinstance, HWND hwnd, int screenWidth, int screenHeigh
     BaseApplication::init(hinstance, hwnd, screenWidth, screenHeight, in, VSYNC, FULL_SCREEN);
 
     // Create Mesh object
-    mesh = make_unique<ColourQuad>(renderer->getDevice(), renderer->getDeviceContext());
+    mesh = make_unique<TextureQuad>(renderer->getDevice(), renderer->getDeviceContext());
 
-    colourShader = make_unique<ColourShader>(renderer->getDevice(), hwnd);
+    textureShader = make_unique<TextureShader>(renderer->getDevice(), hwnd);
 }
 
 bool App2::frame()
@@ -46,8 +46,8 @@ bool App2::render()
 
     // Send geometry data (from mesh), send shader pararmeters and render geometry with set shaders
     mesh->sendData(renderer->getDeviceContext());
-    colourShader->setShaderParameters(renderer->getDeviceContext(), worldMatrix, viewMatrix, projectionMatrix);
-    colourShader->render(renderer->getDeviceContext(), mesh->getIndexCount());
+    textureShader->setShaderParameters(renderer->getDeviceContext(), worldMatrix, viewMatrix, projectionMatrix);
+    textureShader->render(renderer->getDeviceContext(), mesh->getIndexCount());
 
     // Render GUI
     gui();
