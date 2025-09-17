@@ -4,12 +4,12 @@
 struct InputType
 {
 	float4 position : SV_POSITION;
-	float4 colour : COLOR;
+	float2 uv       : TEXCOORD0;
 };
 
 
 float4 main(InputType input) : SV_TARGET
 {
-	input.colour.rgb = float3(1.0f, 0.0f, 0.0f);
-	return input.colour;
+	const float brightness = (input.uv.x + input.uv.y) * 0.5f;
+	return brightness;
 }

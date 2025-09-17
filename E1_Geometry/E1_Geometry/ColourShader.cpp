@@ -34,7 +34,7 @@ void ColourShader::initShader(const wchar_t* vsFilename, const wchar_t* psFilena
 	D3D11_BUFFER_DESC matrixBufferDesc;
 	
 	// Load (+ compile) shader files
-	loadColourVertexShader(vsFilename);
+	loadTextureVertexShader(vsFilename);
 	loadPixelShader(psFilename);
 
 	// Setup the description of the dynamic matrix constant buffer that is in the vertex shader.
