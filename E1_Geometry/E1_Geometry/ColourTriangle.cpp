@@ -23,43 +23,26 @@ void ColourTriangle::initBuffers(ID3D11Device* device)
 {
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 
-	vertexCount = 4;
-	indexCount  = 6;
+	vertexCount = 3;
+	indexCount  = 3;
 
 	VertexType_Texture* vertices = new VertexType_Texture[vertexCount];
 	unsigned long* indices = new unsigned long[indexCount];
 
-	/* UV direction in Direct3D
-      (0,0) ┌───────────────┐ (1,0)
-            │               │
-            │               │
-            │               │
-            │               │
-      (0,1) └───────────────┘ (1,1)
-	 */
-
 	// Load the vertex array with data.
-	vertices[0].position = XMFLOAT3(-1.0f, 1.0f, 0.0f); // Top left
+	vertices[0].position = XMFLOAT3(0.0f, 1.0f, 0.0f); // Top
 	vertices[0].texture  = XMFLOAT2(0.0f, 0.0f);
 	
-	vertices[1].position = XMFLOAT3(1.0f, 1.0f, 0.0f); // Top right
+	vertices[1].position = XMFLOAT3(-1.0f, -1.0f, 0.0f); // Bottom left
 	vertices[1].texture  = XMFLOAT2(1.0f, 0.0f);
 
-	vertices[2].position = XMFLOAT3(-1.0f, -1.0f, 0.0f); // Bottom left
+	vertices[2].position = XMFLOAT3(1.0f, -1.0f, 0.0f); // Bottom right
 	vertices[2].texture  = XMFLOAT2(0.0f,  1.0f);
 
-	vertices[3].position = XMFLOAT3(1.0f, -1.0f, 0.0f); // Bottom right
-	vertices[3].texture  = XMFLOAT2(1.0f, 1.0f);
-
 	// Load the index array with data.
-	indices[0] = 2;  // Bottom left
-	indices[1] = 1;  // Top right
-	indices[2] = 0;  // Top left
-
-	indices[3] = 2;  // Bottom left
-	indices[4] = 3;  // Bottom right
-	indices[5] = 1;  // Top right
-	
+	indices[0] = 0;  // Top
+	indices[1] = 1;  // Bottom left
+	indices[2] = 2;  // Bottom right
 
 	D3D11_BUFFER_DESC vertexBufferDesc = { sizeof(VertexType_Texture) * vertexCount, D3D11_USAGE_DEFAULT, D3D11_BIND_VERTEX_BUFFER, 0, 0, 0 };
 	vertexData = { vertices, 0 , 0 };

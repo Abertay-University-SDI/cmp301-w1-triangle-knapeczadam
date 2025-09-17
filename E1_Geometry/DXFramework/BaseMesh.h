@@ -46,7 +46,7 @@ protected:
 public:
 	/// Empty constructor
 	BaseMesh();
-	~BaseMesh();
+	virtual ~BaseMesh();
 
 	/// Transfers mesh data to the GPU.
 	virtual void sendData(ID3D11DeviceContext* deviceContext, D3D_PRIMITIVE_TOPOLOGY top = D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);

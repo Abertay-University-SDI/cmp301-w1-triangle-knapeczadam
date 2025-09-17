@@ -34,7 +34,7 @@ class BaseApplication
 public:
 	/// Create an empty BaseApplication
 	BaseApplication();
-	~BaseApplication();
+	virtual ~BaseApplication();
 	/** \brief Virtual function for class initialisation
 	*
 	* Virtual function for default initialisation of the BaseApplication. This should be overridden adding adding initialisation as required.

@@ -1,10 +1,19 @@
 // Main.cpp
-#include "../DXFramework/System.h"
 #include "App1.h"
+#include "App2.h"
+#include "../DXFramework/System.h"
+
+#define SHOW_QUAD 1
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pScmdline, int iCmdshow)
 {
-	App1* app = new App1();
+	
+#if SHOW_QUAD
+	BaseApplication* app = new App2();
+#else
+	BaseApplication* app = new App1();
+#endif
+	
 	System* system;
 
 	// Create the system object.
